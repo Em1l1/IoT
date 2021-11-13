@@ -1,0 +1,22 @@
+drwx------  4 chronos users 4.0K Apr 30 23:29 BasedeDatos
+drwx------  4 chronos users 4.0K May  1 00:52 ReactJS
+drwx------  5 chronos users 4.0K Apr 30 22:02 Business-Management
+drwx------  8 chronos users 4.0K Apr 30 23:39 Desarrollo_de_Software
+drwxrwxrwx 12 chronos users 4.0K May  1 00:33 JavaScript
+drwxrwxrwx 14 chronos users 4.0K May  1 00:23 Ingles
+drwxrwxrwx 15 chronos users 4.0K May  1 02:04 Internet_of_Things
+drwxrwxrwx  3 chronos users 4.0K Apr 28 22:55 prework_entorno_DW
+drwxrwxrwx  4 chronos users 4.0K Apr 30 18:16 GitHub
+drwxrwxrwx  4 chronos users 4.0K Apr 30 21:19 Administracion_Servidores
+drwxrwxrwx  4 chronos users 4.0K May  1 00:41 produccion-audiovisual
+drwxrwxrwx  6 chronos users 4.0K May  1 00:53 startUp
+drwxrwxrwx  7 chronos users 4.0K Apr 30 22:26 DevOps
+drwxrwxrwx  7 chronos users 4.0K Apr 30 23:57 Django
+drwxrwxrwx  7 chronos users 4.0K May  1 00:36 Periodismo-digital
+drwxrwxrwx  8 chronos users 4.0K Apr 30 23:27 HTML
+drwxrwxrwx  8 chronos users 4.0K May  1 00:45 Programacion_Desarrollo_de_Software
+drwxrwxrwx  9 chronos users 4.0K Apr 30 23:55 DesarrolloProfesional
+drwxrwxrwx  9 chronos users 4.0K May  1 00:46 python
+drwxr-xr-x 10 chronos users 4.0K May  1 00:56 Escuela-de-Desarrollo-Web
+drwxr-xr-x  4 chronos users 4.0K Apr 30 18:40 math
+total 84K

@@ -1,0 +1,10 @@
+total 36K
+drwxrwxrwx  4 chronos users 4.0K Apr 28 22:55 book_learning
+drwxrwxrwx  3 chronos users 4.0K Apr 28 22:58 css
+drwxr-xr-x  7 chronos users 4.0K May  1 01:14 Learning_codigofacilito
+drwxr-xr-x  2 chronos users 4.0K Apr 28 18:19 learning_dalto
+drwxrwxrwx  3 chronos users 4.0K Apr 28 23:00 Learning_Know
+drwxrwxrwx  8 chronos users 4.0K Apr 28 23:00 learning_linkedln
+drwxr-xr-x 23 chronos users 4.0K May  1 00:56 Learning_platzi
+drwxrwxrwx  3 chronos users 4.0K Apr 28 23:00 practica-python
+drwxrwxrwx  3 chronos users 4.0K Apr 28 23:00 proyecto

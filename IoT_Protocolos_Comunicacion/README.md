@@ -472,9 +472,29 @@ Terrestre: HW103
 # 5. Diseño
 ## Arquitectura de nodos
 
+Los nodos son los dispositivos que se conectan a una red que puede ir conectada a internet o intranet. Son las cosas del internet de las cosas porque interactúan con el mundo real llevando una variable física a la parte digital.
+
+**Arquitectura:**
+
+- **Microcontrolador:** Es el cerebro del nodo y sin él no se podrían procesar datos. Es importante elegir uno a la medida. Cada controlador tendrá por lo menos un procesador, periféricos, conversores de señales y manejo de energía.
+- **Sensores:** Es la manera en la que se convierten las variables físicas a digitales. Gracias a ellos puede ser enviada la información a internet o intranet. Existen digitales y analógicos.
+- **Actuadores:** Son la forma de interacción desde lo digital hasta una forma física como motores, servomotores, luces, entre otros.
+- **Radiofrecuencia:** Es la segunda parte más importante del nodo y nos permite transmitir los mensajes.
+
 # 6. Introducción a la práctica
 ## Instalación de framework ESP32 e instalación de framework SAMD21
+
+clonar confi
+
+```sh
+git clone https://github.com/espressif/arduino-esp32.git
+```
+
+[![img](https://www.google.com/s2/favicons?domain=https://static.platzi.com/media/favicons/platzi_favicon.png)dl.espressif.com](https://dl.espressif.com/dl/package_esp32_index.json)
+
 ## Qué es una interrupción
+
+
 
 # 7. Práctica de WiFi
 ## Prueba de señal Wi-fi

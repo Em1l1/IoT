@@ -494,13 +494,194 @@ git clone https://github.com/espressif/arduino-esp32.git
 
 ## Qué es una interrupción
 
+Una interrupción es un momento específico donde se interrumpe el código y la secuencia. Es un evento que pasa ajeno al microcontrolador y dispara una parte de otro código.
+
+> Se entiende la idea pero quisera hacer un aporte, ya que, al presentarse una interrupción en una linea de cogido, es decir en 1002, el programa salta hacia la etiqueta establecida y al terminar la ejecución de dicha subrutina, esta no retorna a la misma linea de codigo de donde salto, sino a la siguiente más cercana inferior, es decia a 1003.
+
+INTERRUPCIÓN.esta viene desde los procesadores, , es un pedazo donde se interrumpe un código, y es importante trabajar con ellos porque nos permite ahorrar energía,
+
+> Las interrupciones del sistema NO deben demorarse, ya que esto obliga a que se generen retados en el programa principal.
+
 
 
 # 7. Práctica de WiFi
 ## Prueba de señal Wi-fi
+
+**code Blink**
+
+```cpp
+//Variables
+#define LED 2
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(LED, OUTPUT);   //Configurand el pin 2 como salida.
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  // Colocaré mi código para encender el LED por 1 seg
+  digitalWrite(LED, HIGH);
+  delay(1000);
+  // Colocaré mi código para apagar el LED por 1 seg
+  digitalWrite(LED, LOW);
+  delay(1000);
+}
+```
+
+**Example Conexion WiFi**
+
+```c++
+/*
+ *  This sketch demonstrates how to scan WiFi networks.
+ *  The API is almost the same as with the WiFi Shield library,
+ *  the most obvious difference being the different file you need to include:
+ */
+#include "WiFi.h"
+
+void setup()
+{
+    Serial.begin(115200);
+
+    // Set WiFi to station mode and disconnect from an AP if it was previously connected
+    WiFi.mode(WIFI_STA);
+    WiFi.disconnect();
+    delay(100);
+
+    Serial.println("Setup done");
+}
+
+void loop()
+{
+    Serial.println("scan start");
+
+    // WiFi.scanNetworks will return the number of networks found
+    int n = WiFi.scanNetworks();
+    Serial.println("scan done");
+    if (n == 0) {
+        Serial.println("no networks found");
+    } else {
+        Serial.print(n);
+        Serial.println(" networks found");
+        for (int i = 0; i < n; ++i) {
+            // Print SSID and RSSI for each network found
+            Serial.print(i + 1);
+            Serial.print(": ");
+            Serial.print(WiFi.SSID(i));
+            Serial.print(" (");
+            Serial.print(WiFi.RSSI(i));
+            Serial.print(")");
+            Serial.println((WiFi.encryptionType(i) == WIFI_AUTH_OPEN)?" ":"*");
+            delay(10);
+        }
+    }
+    Serial.println("");
+
+    // Wait a bit before scanning again
+    delay(5000);
+}
+```
+
+En el sistema Linux, en caso de ocurrir algun error para conectar con la esp32.
+
+### Realizar las siguientes configuraciones
+
+1. ### Error
+
+```sh
+Traceback (most recent call last):
+
+  File "C:\Program Files (x86)\Arduino\hardware\espressif\esp32/tools/esptool.py", line 25, in <module>
+
+    import serial
+
+ImportError: No module named serial
+
+exit status 1
+Error compiling for board ESP32 Dev Module.
+```
+
+Instalar con `pip` python
+
+```sh
+pip install pyserial
+```
+
+2. ### Error
+
+```sh
+connection error permission denied to /dev/ttyUSB0
+```
+
+**Conceder los permisos**
+
+```sh
+sudo chmod a+rw /dev/ttyUSB0
+```
+
+LIsto, inconvenientes resultos. A programar.
+
 ## Protocolo HTTP desde un microcontrolador
+
+- El protocolo **HTTP** nos sirve para obtener datos desde la web hacia el dispositivo.
+
+- La librería **WiFiMulti** nos permite hacer múltiples conexiones y generar access points.
+
+  > [asciilogo arduino](http://arduino.tips/asciilogo.txt)
+
+**code**
+
+**ESP32 Dev Module,**
+
+```c++
+#include <WiFi.h>
+#include <WiFiMulti.h>
+#include <HTTPClient.h>
+
+WiFiMulti wifiMulti;
+
+void setup() {
+  Serial.begin(115200);
+  delay(100);
+  wifiMulti.addAP(
+    "",
+    "");//Agregar un access point
+  Serial.println("Conectando a WiFi");
+  while(wifiMulti.run() != WL_CONNECTED){
+    Serial.print(".");
+  }
+  Serial.println();
+  Serial.println("WiFi conectado");
+  Serial.println("Direccion IP :");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+  HTTPClient http;
+  Serial.println("HTTP INICIANDO...");
+  http.begin("https://www.arduino.cc/asciilogo.txt");
+  Serial.println("HTTP GET...");
+  http.GET();
+  String respuesta = http.getString();
+  Serial.println(respuesta);
+  http.end();
+  delay(10000);
+}
+```
+
 ## Conectando sensores y actuadores al microcontrolador
+
+**Consejo**: Siempre que trabajes conectando circuitos hazlo con todo desconectado de la energía y los puertos del computador, esto como buena práctica para evitar daños tanto en componentes como en tu computador.
+
+> Tip para usar pulsadores, conecten un capacitor de 10nF en paralelo al pulsador para evitar el efecto rebote.
+
+[DTH11](https://www.mouser.com/datasheet/2/758/DHT11-Technical-Data-Sheet-Translated-Version-1143054.pdf)
+
 ## Preparación de aplicación para recibir datos
+
+- **GP** significa general purpose input / output que es una entrada o salida de propósito general. Puedes controlar en el microcontrolador cualquier cosa con un propósito general.
+- Los cables virtuales sirven como un transporte para mandar información desde la aplicación al microcontrolador o viceversa.
+
 ## Programación por eventos de un microcontrolador
 ## Configuración de eventos del microcontrolador
 ## Conexión de aplicación
